@@ -22,7 +22,7 @@ HOW TO USE:
 Copy **tbbmalloc.dll** in your arma3/dll directory.
 append **-malloc=tbbmalloc** to your arma 3 start line.
 
-**tbbmalloc** is prefer to use RAM in **large pages** (2048kB instead of 4kB).
+**tbbmalloc** prefers to use RAM in **large pages** (2048kB instead of 4kB).
 
 The use of large pages requires the **lock pages in memory privilege** for the arma user.
 
@@ -31,9 +31,8 @@ Make sure your arma user account has this privilege set in your **local security
 On client, i measured between 6-9% higher framerates with "Helos A3-bench". Especially in  multiplayer games,
 i noticed significant smoother gameplay (higher and more stable framerates), for longer running sessions. On server i have no benchmark, but it should accelerate here too, dependend on mission and server load.   
 
-This test version logs some timing data to **malloc_PIDX.log** and it would be helpful, if you could post me your logfile results in BIS forum (server&administration), together with some info about your system (OS, RAM, CPU) and test conditions, like arma build, server or client, mission running.
-
-The tbbmallocs logfile looks like in this example:
+This test version logs some timing data to **malloc_PIDX.log**.
+The tbbmalloc logfile looks like in this example:
 
 	WindowsVersion: 6.1  ServicePack: 1.0  Typ: Desktop
 
@@ -64,8 +63,8 @@ The tbbmallocs logfile looks like in this example:
 	   0.967s:   0.26ms     4096k at:0xfd800000 Alloc LP (  38M)
 	   .....
 
-The first line for example tells you, that the required privileg is set correctly.     
-(LP means large pages, SP means small pages)
+The line with **SeLockMemoryPrivilege** for example tells you, that the required privileg is set correctly.     
+(Alloc LP means large pages are allocated, SP means small pages)
 
 
 

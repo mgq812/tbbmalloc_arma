@@ -4,7 +4,7 @@ needs the 'Lock pages in memory' privilege granted.
 This can be done manually via secpol.msc or programatically, with this little tool.
 (some windows versions don't support secpol.msc, so this tool is the only option)
 
-Additional this tool applys the GMF registry tweak (large pages for image file mapping) for arma client. 
+Additional this tool applies the GMF registry tweak (large pages for image file mapping) for arma client. 
 
 
 How to use:

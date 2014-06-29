@@ -11,7 +11,7 @@ How to use:
 
 - find out the name of user account, that is used to run arma (start arma, 'taskmanager'->'processes'->'User Name')
 
-- execute LPManager.exe via 'Run as administrator' and type your useraccountname in the white box to the right from 'Privile' button.     
+- put LPManager.exe in A3 root folder, run it via 'Run as administrator' and type your useraccountname in the white box to the right from 'Privile' button.     
 
 - click 'Privilege' button, there should occure 'Restart!' in the box, in green letters     
 

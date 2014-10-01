@@ -1,6 +1,6 @@
 ... this is an **experimental** replacement for armas default **custom memory allocator** ...
 
-This custom memory allocator is based on the latest **intel tbb malloc 4.2, updt. 2** and should work with arma server and client.
+This custom memory allocator is based on **intel tbb malloc 4.2, updt. 2** and should work with arma server and client.
 
 You can find the source code of intels tbb 4.2, updt. 2 here:
 

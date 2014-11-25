@@ -24,6 +24,11 @@ How to use:
 
 To disable GMF tweak, for benchmarking, for example, just use LPManager (as administrator) and uncheck the CheckBox accordingly
 
+The new introduced 'Clear Mem' feature (Button: 'ClearMem') can only work, if two additional privileges are granted for the your account:
+'Adjust memory quotas for a process' and 'Profile single process'.
+LPManager can add this privileges for you too (Button: 'Privilege', see above).
+
+
 
 IMPORTANT:
 

@@ -1,40 +1,55 @@
-To allow 'tbbmalloc for arma' to allocate memory in large page regions, the account, used to run arma,
-needs the 'Lock pages in memory' privilege granted.
+LPManager
+=========
 
-This can be done manually via secpol.msc or programatically, with this little tool.
-(some windows versions don't support secpol.msc, in this case, this tool is the only option)
+Custom memory manager 'tbbmalloc for arma' prefers memory in large page regions (requires a 64bit OS and at least 8GB RAM). 
+Large pages are 2MB blocks of continous physical RAM, aligned to a 2MB boundary address.
 
-Additional this tool applies the GMF registry tweak (large pages for image file mapping) for arma client. 
+Memory in large pages is faster to access, because the efficiency of the cpu's small TLB's (translation lookup buffer),
+is significantly higher, compared with access to small pages.  
+
+To allocate memory in large pages, your application needs a special privilege (SeLockMemoryPrivilege) AND
+your operating system need to have enough large pages available, to be able to satisfy your applications request.
+
+Experienced user are able to do the required task, with the help of available professional system tools.
+
+For unexperienced users it is hard to ensure this two conditions above are always met.
+
+I made LPManager, to safe you some of the most difficult tasks, like setting privilegs up correctly
+and keeping your OS in a performance-capable state.
 
 
 How to use:
 
-- find out the name of user account, that is used to run arma (start arma, 'taskmanager'->'processes'->'User Name')
+- find out the name of user account, that is used to run arma (start arma, start taskmanager and look for 'taskmanager'->'processes'->'User Name')
 
-- put LPManager.exe in A3 root folder, run it via 'Run as administrator' and type your useraccountname in the white box to the right from 'Privile' button.     
+- put LPManager.exe in A3 root folder, run it via 'Run as administrator' and type your useraccountname in the white box to the right from 'Privilege' button     
 
-- click 'Privilege' button, there should occure 'Restart!' in the box, in green letters     
+- click 'Privilege' button, there should occure 'ReBoot!' in the box, in green letters
 
-- restart your system     
+- check the CheckBox 'LP ImageFileMapping Client' (if not already checked) to apply the GMF registry tweak for arma3.exe (client)
 
-- check the CheckBox 'LP ImageFileMapping Client' to apply the GMF registry tweak for arma3.exe (client)
+- optional, check the CheckBox 'DisablePagingExecutive' (if not already checked) to apply a registry tweak that reduces meory fragmentation
 
-- enjoy     
+- restart your system once     
 
-
-To disable GMF tweak, for benchmarking, for example, just use LPManager (as administrator) and uncheck the CheckBox accordingly
-
-The new introduced 'Clear Mem' feature (Button: 'ClearMem') can only work, if two additional privileges are granted for the your account:
-'Adjust memory quotas for a process' and 'Profile single process'.
-LPManager can add this privileges for you too (Button: 'Privilege', see above).
+- if you like, you can use LPManager from now on under normal user account, to check and optimize the availability of large pages on your system      
 
 
+Notice:
+To disable GMF tweak, for example for benchmarking purposes, just use LPManager ('run as Administrator') and uncheck the related CheckBox accordingly.
 
-IMPORTANT:
 
-Mapping imagefile in large page region normally doesn't work for arma3server.exe (crash at start), because a special flag in servers imagefile header is incompatible with 'UseLargePages'.
-But it is possible to make this working for arma server too, if this flag is patched. Normally you have to use 'explorer suite' for such patching.
-LPManager is able to apply the required 'DLLCharakteristics' patch in ImageFileHeader and to set the GMF registry tweak for arma3server.exe too, just by checking the related CheckBox.
+
+
+
+IMPORTANT (for experienced users):
+
+Mapping imagefile in large page region, normally doesn't work for arma3server.exe (crash at start), 
+because a special flag in servers imagefile header is incompatible with 'UseLargePages'.
+It is possible to make lp image file mapping working, for arma server too, if this flag is patched. 
+Normally, you have to use 'explorer suite' for such patching.
+LPManager is able to apply the required 'DLLCharakteristics' patch in ImageFileHeader and to set the GMF registry tweak for arma3server.exe too. 
+To use this feature, just check the related CheckBox.
 This implies disabling of ASLR (adress space layout randomization) too, for arma 3 server. 
 So please use this only, if you know what this means and what you do!
  

@@ -4,7 +4,7 @@ LPManager
 Custom memory manager 'tbbmalloc for arma' prefers memory in large page regions (requires a 64bit OS and at least 8GB RAM). 
 Large pages are 2MB blocks of continous physical RAM, aligned to a 2MB boundary address.
 
-Memory in large pages is faster to access, because the efficiency of the cpu's small TLB's (translation lookup buffer),
+Memory in large pages is faster to access, because the efficiency of the cpu's small TLB's (translation look-aside buffer),
 is significantly higher, compared with access to small pages.  
 
 To allocate memory in large pages, your application needs a special privilege (SeLockMemoryPrivilege) AND

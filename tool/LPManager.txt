@@ -8,9 +8,9 @@ Memory in large pages is faster to access, because the efficiency of the cpu's s
 is significantly higher, compared with access to small pages.  
 
 To allocate memory in large pages, your application needs a special privilege (SeLockMemoryPrivilege) AND
-your operating system need to have enough large pages available, to be able to satisfy your applications request.
+your operating system needs to have enough large pages available, to be able to satisfy your applications request.
 
-Experienced user are able to do the required task, with the help of available professional system tools.
+Experienced user are able to do the required setup task, with the help of available professional system tools.
 
 For unexperienced users it is hard to ensure this two conditions above are always met.
 
@@ -26,9 +26,9 @@ How to use:
 
 - click 'Privilege' button, there should occure 'ReBoot!' in the box, in green letters
 
-- check the CheckBox 'LP ImageFileMapping Client' (if not already checked) to apply the GMF registry tweak for arma3.exe (client)
+- check the CheckBox 'LP ImageFileMapping Client' (if not already checked), to apply the GMF registry tweak for arma3.exe (client)
 
-- optional, check the CheckBox 'DisablePagingExecutive' (if not already checked) to apply a registry tweak that reduces meory fragmentation
+- optional, check the CheckBox 'DisablePagingExecutive' (if not already checked) to apply a registry tweak that reduces memory fragmentation (if pagefile is present)
 
 - restart your system once     
 

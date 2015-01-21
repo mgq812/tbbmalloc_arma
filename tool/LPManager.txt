@@ -1,3 +1,10 @@
+This support tool project is closed now.
+Reason: Lack of support by BI.
+
+
+
+
+
 LPManager
 =========
 
